@@ -1,39 +1,252 @@
-<!DOCTYPE html> <html lang=en style=--landing-accent:#007BFF;--landing-active:#004085;--landing-background:#FFFFFF;--landing-error:#DC3545;--landing-focus:#80bdff;--landing-foreground:#2C3E50;--landing-gradient-accent:linear-gradient(#007BFF,#3399FF);--landing-gradient-overlay:linear-gradient(#00000080,#00000000);--landing-gradient-primary:linear-gradient(#007BFF,#0056b3);--landing-gradient-secondary:linear-gradient(#F8F9FA,#FFFFFF);--landing-hover:#0056b3;--landing-link:#007BFF;--landing-overlay:#00000080;--landing-primary:#007BFF;--landing-secondary:#F8F9FA;--landing-success:#28A745;--landing-text:#2C3E50;--landing-text-muted:#6C757D;--landing-warning:#FFC107><!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youssef Khaled - Portfolio</title>
+    <style>
+        :root {
+            --landing-accent: #007BFF;
+            --landing-active: #004085;
+            --landing-background: #FFFFFF;
+            --landing-error: #DC3545;
+            --landing-focus: #80bdff;
+            --landing-foreground: #2C3E50;
+            --landing-gradient-accent: linear-gradient(#007BFF, #3399FF);
+            --landing-gradient-overlay: linear-gradient(#00000080, #00000000);
+            --landing-gradient-primary: linear-gradient(#007BFF, #0056b3);
+            --landing-gradient-secondary: linear-gradient(#F8F9FA, #FFFFFF);
+            --landing-hover: #0056b3;
+            --landing-link: #007BFF;
+            --landing-overlay: #00000080;
+            --landing-primary: #007BFF;
+            --landing-secondary: #F8F9FA;
+            --landing-success: #28A745;
+            --landing-text: #2C3E50;
+            --landing-text-muted: #6C757D;
+            --landing-warning: #FFC107;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Open Sans", sans-serif;
+            background-color: var(--landing-background);
+            color: var(--landing-text);
+        }
+        
+        .hero-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 60px;
+        }
+        
+        .hero-image-section {
+            flex: 0 0 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .profile-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 4px solid var(--landing-primary);
+        }
+        
+        .hero-content {
+            flex: 1;
+            padding-left: 40px;
+        }
+        
+        .hero-title {
+            font-family: "Inter", sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--landing-foreground);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--landing-primary);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .hero-tagline {
+            font-size: 16px;
+            color: var(--landing-text);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .hero-location {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .location-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            color: var(--landing-text);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary, .btn-secondary {
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background-color: var(--landing-primary);
+            color: white;
+            border: 2px solid var(--landing-primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--landing-hover);
+            border-color: var(--landing-hover);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--landing-primary);
+            border: 2px solid var(--landing-primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--landing-primary);
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: var(--landing-secondary);
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: var(--landing-primary);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+                gap: 40px;
+            }
+            
+            .hero-image-section {
+                flex: none;
+            }
+            
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .hero-content {
+                padding-left: 0;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero-section">
+ <div class="hero-container"> <html lang=en style=--landing-accent:#007BFF;--landing-active:#004085;--landing-background:#FFFFFF;--landing-error:#DC3545;--landing-focus:#80bdff;--landing-foreground:#2C3E50;--landing-gradient-accent:linear-gradient(#007BFF,#3399FF);--landing-gradient-overlay:linear-gradient(#00000080,#00000000);--landing-gradient-primary:linear-gradient(#007BFF,#0056b3);--landing-gradient-secondary:linear-gradient(#F8F9FA,#FFFFFF);--landing-hover:#0056b3;--landing-link:#007BFF;--landing-overlay:#00000080;--landing-primary:#007BFF;--landing-secondary:#F8F9FA;--landing-success:#28A745;--landing-text:#2C3E50;--landing-text-muted:#6C757D;--landing-warning:#FFC107>
  <div class=hero-container>
- <div class=hero-image-section>
- <img src="photo.jpg " alt="Professional Profile Picture of Youssef Khaled" class=profile-image>
- 
+ <div class="hero-image-section">
+ <img src="photo.jpg" alt="Professional Profile Picture of Youssef Khaled" class="profile-image">
  </div>
- <div class=hero-content>
- <h1 class=hero-title style="opacity:1;transform:translateY(0px);transition:opacity 0.6s,transform 0.6s">Youssef Khaled</h1>
- <p class=hero-subtitle style="opacity:1;transform:translateY(0px);transition:opacity 0.6s 0.1s,transform 0.6s 0.1s">Electronics &amp; Communication Engineering Student | Programming Instructor | Cybersecurity Analyst</p>
- <p class=hero-tagline style="opacity:1;transform:translateY(0px);transition:opacity 0.6s 0.2s,transform 0.6s 0.2s">Building secure systems and empowering the next generation of developers through hands-on training and innovative engineering solutions.</p>
+ <div class="hero-content">
+ <h1 class="hero-title">Youssef Khaled</h1>
+ <p class="hero-subtitle">Electronics &amp; Communication Engineering Student | Programming Instructor | Cybersecurity Analyst</p>
+ <p class="hero-tagline">Building secure systems and empowering the next generation of developers through hands-on training and innovative engineering solutions.</p>
  
- <div class=hero-location>
- <div class=location-item>
+ <div class="hero-location">
+ <div class="location-item">
  <span>📍</span>
  <span>Port Said, Egypt</span>
  </div>
- <div class=location-item>
+ <div class="location-item">
  <span>📞</span>
  <span>+20 114 161 9933</span>
  </div>
  </div>
- <div class=cta-buttons style="opacity:1;transform:translateY(0px);transition:opacity 0.6s 0.3s,transform 0.6s 0.3s">
- <a href=Yousef_Eid-CV.pdf class=btn-primary target=_blank rel="noopener noreferrer" data-target-backup=_blank>
+ <div class="cta-buttons">
+ <a href="Yousef_Eid-CV.pdf" class="btn-primary" target="_blank" rel="noopener noreferrer">
  Download Resume
  </a>
- <a href=#projects class=btn-secondary data-target-backup=undefined target=undefined>View Projects</a>
- <a href=#contact class=btn-secondary data-target-backup=undefined target=undefined>Contact Me</a>
+ <a href="#projects" class="btn-secondary">View Projects</a>
+ <a href="#contact" class="btn-secondary">Contact Me</a>
  </div>
- <div class=social-links style="opacity:1;transform:translateY(0px);transition:opacity 0.6s 0.4s,transform 0.6s 0.4s">
- <a href=https://www.linkedin.com/in/youssef-khaled-eid class=social-link target=_blank rel="noopener noreferrer" title="LinkedIn Profile" data-target-backup=_blank>
+ <div class="social-links">
+ <a href="https://www.linkedin.com/in/youssef-khaled-eid" class="social-link" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile">
  💼
  </a>
- <a href=https://github.com/YoussefKhaled03 class=social-link target=_blank rel="noopener noreferrer" title="GitHub Profile" data-target-backup=_blank>
+ <a href="https://github.com/YoussefKhaled03" class="social-link" target="_blank" rel="noopener noreferrer" title="GitHub Profile">
  💻
  </a>
- <a href=mailto:eng.youssef.khaled.26@gmail.com class=social-link title="Email Contact" data-target-backup=undefined target=undefined>
+ <a href="mailto:eng.youssef.khaled.26@gmail.com" class="social-link" title="Email Contact">
  ✉️
  </a>
  </div>
@@ -259,4 +472,6 @@
  </div>
  </div>
 </section>
-</div></div></div></div></div></div></div></div><div class="B__fixed B__right-5 B__bottom-20 lg:B__bottom-16 B__z-[9999] B__flex B__flex-col B__items-end B__gap-4"></div></div></div></main><div class=B__font-[Inter]><div class="B__fixed B__inset-0 B__z-[9999999] B__bg-black B__overflow-hidden B__hidden sf-hidden"></div></div></div></div><div class=Toastify></div></div><div id=portal-root></div><next-route-announcer><p aria-live=assertive id=__next-route-announcer__ role=alert style=border:0px;clip:rect(0px,0px,0px,0px);height:1px;margin:-1px;overflow:hidden;padding:0px;position:absolute;top:0px;width:1px;white-space:nowrap;overflow-wrap:normal></p></next-route-announcer><div id=dynamic-script-container-fxyy7noru></div><div id=dynamic-script-container-mju2vizx0></div><div id=dynamic-script-container-zapo9qlma></div><div id=dynamic-script-container-0tznwu7fk></div><script data-template-shadow-root>(()=>{document.currentScript.remove();processNode(document);function processNode(node){node.querySelectorAll("template[shadowrootmode]").forEach(element=>{let shadowRoot = element.parentElement.shadowRoot;if (!shadowRoot) {try {shadowRoot=element.parentElement.attachShadow({mode:element.getAttribute("shadowrootmode"),delegatesFocus:element.getAttribute("shadowrootdelegatesfocus")!=null,clonable:element.getAttribute("shadowrootclonable")!=null,serializable:element.getAttribute("shadowrootserializable")!=null});shadowRoot.innerHTML=element.innerHTML;element.remove()} catch (error) {} if (shadowRoot) {processNode(shadowRoot)}}})}})()</script>
+
+</body>
+</html>
