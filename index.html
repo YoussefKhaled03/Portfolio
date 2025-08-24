@@ -300,16 +300,27 @@
                 observer.observe(el);
             });
 
-            // Add smooth scrolling for anchor links
+            // Add smooth scrolling for anchor links with enhanced functionality
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
+                    const targetId = this.getAttribute('href');
+                    const target = document.querySelector(targetId);
+                    
                     if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
+                        const headerOffset = 80; // Offset for better positioning
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
                         });
+                        
+                        // Update URL hash after scroll completes
+                        setTimeout(() => {
+                            history.pushState(null, null, targetId);
+                        }, 800);
                     }
                 });
             });
@@ -441,7 +452,7 @@
  </div>
 </section>
 </div></div></div></div></div></div></div><div class="B__h-full B__w-full"><div class="B__w-full B__h-full B__relative B__bg-shade-light" id=A0CGjH5aR4Un6A1756057800><div class="B__w-full B__h-full B__relative live-mode B__opacity-100"><div class=code-editor-container><div class="B__relative B__w-full"><div class="code-preview-container B__relative"><div id=user-content class="B__w-full B__relative"><style class=sf-hidden>.featured-projects{background-color:var(--landing-secondary);padding:80px 20px;font-family:"Open Sans",sans-serif}.featured-projects-container{max-width:1200px;width:100%;margin:0 auto}.featured-projects h2{font-family:"Inter",sans-serif;font-size:48px;font-weight:700;text-align:center;color:var(--landing-foreground);margin-bottom:60px;transition:all 0.8s ease}.featured-projects h2.animate{opacity:1;transform:translateY(0)}.projects-grid{display:flex;flex-direction:row;gap:40px;align-items:flex-start}.project-card{background-color:var(--landing-background);border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.08);overflow:hidden;transition:all 0.4s ease;flex:1}.project-card.animate{opacity:1;transform:translateY(0)}.project-card:nth-child(2){transition-delay:0.2s}.project-card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(0,0,0,0.15)}.project-image-container{position:relative;width:100%;height:250px;background:var(--landing-gradient-secondary);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center}.project-placeholder{width:100%;height:100%;background:var(--landing-gradient-accent);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--landing-background);font-size:18px;font-weight:600;position:relative}.project-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:var(--landing-overlay);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s ease;color:var(--landing-background);text-align:center;padding:20px}.project-image-container:hover .project-overlay{opacity:1}.project-overlay h4{font-family:"Inter",sans-serif;font-size:20px;font-weight:600;margin-bottom:10px}.project-overlay p{font-size:14px;line-height:1.4}.project-content{padding:30px}.project-title{font-family:"Inter",sans-serif;font-size:28px;font-weight:700;color:var(--landing-foreground);margin-bottom:15px;line-height:1.2}.project-description{color:var(--landing-text);font-size:16px;line-height:1.6;margin-bottom:20px}.tech-tags{display:flex;flex-direction:row;flex-wrap:wrap;gap:8px;margin-bottom:25px}.tech-tag{background-color:var(--landing-secondary);color:var(--landing-text-muted);padding:6px 12px;border-radius:20px;font-size:14px;font-weight:500}.github-button{display:inline-flex;align-items:center;justify-content:center;background-color:var(--landing-accent);color:var(--landing-background);padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;font-size:16px;transition:all 0.3s ease;border:none;cursor:pointer}.github-button:hover{background-color:var(--landing-hover);transform:translateY(-2px)}.github-button:active{background-color:var(--landing-active);transform:translateY(0)}@media (max-width:768px){.featured-projects{padding:60px 20px}.featured-projects h2{font-size:36px;margin-bottom:40px}.projects-grid{flex-direction:column;gap:30px}.project-title{font-size:24px}.project-content{padding:25px}.project-image-container{height:200px}}</style>
-<section class=featured-projects>
+<section class="featured-projects" id="projects">
  <div class=featured-projects-container>
  <h2 class=animate>Innovation in Action</h2>
  
@@ -467,8 +478,8 @@
  <span class=tech-tag>Sensors</span>
  <span class=tech-tag>Motor Control</span>
  </div>
- <a href=https://github.com/YoussefKhaled03 target=_blank rel="noopener noreferrer" class=github-button>
- View on GitHub
+ <a href=www.linkedin.com/in/youssef-khaled-eid target=_blank rel="noopener noreferrer" class=github-button>
+ View on LinkedIn
  </a>
  </div>
  </article>
@@ -492,7 +503,7 @@
  <span class=tech-tag>Battery Management</span>
  <span class=tech-tag>Real-time Tracking</span>
  </div>
- <a href=https://github.com/YoussefKhaled03 target=_blank rel="noopener noreferrer" class=github-button>
+ <a href=https://github.com/YoussefKhaled03/Solar-Tracker target=_blank rel="noopener noreferrer" class=github-button>
  View on GitHub
  </a>
  </div>
@@ -501,7 +512,7 @@
  </div>
 </section>
 </div></div></div></div></div></div></div><div class="B__h-full B__w-full"><div class="B__w-full B__h-full B__relative B__bg-shade" id=qrPmAVLdXanrCN1756057862><div class="B__w-full B__h-full B__relative live-mode B__opacity-100"><div class=code-editor-container><div class="B__relative B__w-full"><div class="code-preview-container B__relative"><div id=user-content class="B__w-full B__relative"><style class=sf-hidden>.get-in-touch{background-color:var(--landing-background);padding:80px 20px;position:relative;overflow:hidden}.get-in-touch::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background-image:radial-gradient(circle at 20% 20%,rgba(0,123,255,0.05) 0%,transparent 50%),radial-gradient(circle at 80% 80%,rgba(0,123,255,0.03) 0%,transparent 50%);pointer-events:none}.get-in-touch-container{max-width:1200px;width:100%;margin:0 auto;position:relative;z-index:1}.get-in-touch-header{text-align:center;margin-bottom:60px;opacity:0;transform:translateY(30px);animation:fadeInUp 0.8s ease-out forwards}.get-in-touch-title{font-family:"Inter",sans-serif;font-size:36px;font-weight:700;color:var(--landing-foreground);margin:0 0 20px 0;line-height:1.2}.availability-status{display:inline-flex;align-items:center;background-color:var(--landing-secondary);border:1px solid var(--landing-success);border-radius:25px;padding:8px 16px;font-family:"Open Sans",sans-serif;font-size:14px;color:var(--landing-success);font-weight:600;margin-top:10px}.availability-dot{width:8px;height:8px;background-color:var(--landing-success);border-radius:50%;margin-right:8px;animation:pulse 2s infinite}.contact-content{display:flex;flex-direction:row;gap:60px;align-items:flex-start}.contact-info{flex:1;opacity:0;transform:translateX(-30px);animation:fadeInLeft 0.8s ease-out 0.2s forwards}.contact-cards{display:grid;gap:20px;margin-bottom:40px}.contact-card{background-color:var(--landing-background);border:1px solid var(--landing-secondary);border-radius:12px;padding:24px;transition:all 0.3s ease;box-shadow:0 2px 8px rgba(0,0,0,0.05)}.contact-card:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,123,255,0.1);border-color:var(--landing-primary)}.contact-card-header{display:flex;align-items:center;margin-bottom:12px}.contact-icon{width:24px;height:24px;margin-right:12px;color:var(--landing-primary);flex-shrink:0}.contact-label{font-family:"Inter",sans-serif;font-size:14px;font-weight:600;color:var(--landing-text-muted);text-transform:uppercase;letter-spacing:0.5px}.contact-value{font-family:"Open Sans",sans-serif;font-size:16px;color:var(--landing-foreground);font-weight:500}.contact-link{color:var(--landing-primary);text-decoration:none;transition:color 0.3s ease}.contact-link:hover{color:var(--landing-hover)}.cta-section{flex:1;opacity:0;transform:translateX(30px);animation:fadeInRight 0.8s ease-out 0.4s forwards}.primary-cta{background:var(--landing-gradient-primary);color:var(--landing-background);border:none;border-radius:8px;padding:16px 32px;font-family:"Inter",sans-serif;font-size:16px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;transition:all 0.3s ease;cursor:pointer;margin-bottom:30px;width:100%;box-shadow:0 4px 15px rgba(0,123,255,0.3)}.primary-cta:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,123,255,0.4);background:var(--landing-hover)}.secondary-ctas{display:flex;flex-direction:column;gap:16px}.secondary-cta{background-color:transparent;color:var(--landing-primary);border:2px solid var(--landing-primary);border-radius:8px;padding:12px 24px;font-family:"Inter",sans-serif;font-size:14px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;transition:all 0.3s ease;cursor:pointer}.secondary-cta:hover{background-color:var(--landing-primary);color:var(--landing-background);transform:translateY(-1px)}.cta-icon{width:16px;height:16px;margin-right:8px}@keyframes fadeInUp{to{opacity:1;transform:translateY(0)}}@keyframes fadeInLeft{to{opacity:1;transform:translateX(0)}}@keyframes fadeInRight{to{opacity:1;transform:translateX(0)}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}@media (max-width:768px){.get-in-touch{padding:60px 20px}.get-in-touch-title{font-size:28px}.contact-content{flex-direction:column;gap:40px}.contact-cards{grid-template-columns:1fr}.secondary-ctas{flex-direction:column}.primary-cta,.secondary-cta{width:100%}}@media (min-width:769px){.contact-cards{grid-template-columns:1fr 1fr}}</style>
-<section class=get-in-touch>
+<section class="get-in-touch" id="contact">
  <div class=get-in-touch-container>
  <div class=get-in-touch-header style=animation-play-state:running>
  <h2 class=get-in-touch-title>Ready to Collaborate?</h2>
