@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Youssef Khaled - Portfolio</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
     <style>
         :root {
             --landing-accent: #007BFF;
@@ -26,6 +27,70 @@
             --landing-text-muted: #6C757D;
             --landing-warning: #FFC107;
         }
+
+        /* Dark theme variables */
+        [data-theme="dark"] {
+            --landing-background: #1a1a1a;
+            --landing-foreground: #ffffff;
+            --landing-text: #e0e0e0;
+            --landing-text-muted: #a0a0a0;
+            --landing-secondary: #2d2d2d;
+            --landing-gradient-secondary: linear-gradient(#2d2d2d, #1a1a1a);
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--landing-background);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--landing-secondary);
+            z-index: 1000;
+            padding: 15px 20px;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: "Inter", sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--landing-primary);
+            text-decoration: none;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .theme-toggle, .lang-toggle {
+            background: var(--landing-secondary);
+            border: 1px solid var(--landing-primary);
+            border-radius: 20px;
+            padding: 8px 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--landing-text);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover, .lang-toggle:hover {
+            background: var(--landing-primary);
+            color: white;
+        }
         
         * {
             margin: 0;
@@ -37,6 +102,8 @@
             font-family: "Open Sans", sans-serif;
             background-color: var(--landing-background);
             color: var(--landing-text);
+            padding-top: 80px; /* Account for fixed navbar */
+            transition: all 0.3s ease;
         }
         
         .hero-container {
@@ -236,6 +303,112 @@
             transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
+        /* Services Section Styles */
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background: var(--landing-background);
+            border: 2px solid var(--landing-secondary);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--landing-primary);
+            box-shadow: 0 12px 32px rgba(0,123,255,0.2);
+        }
+
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .service-title {
+            font-family: "Inter", sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--landing-primary);
+            margin-bottom: 12px;
+        }
+
+        .service-description {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--landing-text-muted);
+        }
+
+        /* Horizontal Scrolling Projects */
+        .projects-scroll-container {
+            position: relative;
+            overflow: hidden;
+            mask: linear-gradient(90deg, 
+                transparent 0%, 
+                white 10%, 
+                white 90%, 
+                transparent 100%);
+        }
+
+        .projects-grid {
+            display: flex;
+            gap: 40px;
+            animation: scrollProjects 30s linear infinite;
+            width: max-content;
+        }
+
+        .projects-grid:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollProjects {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .project-card {
+            background-color: var(--landing-background);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            flex: 0 0 350px;
+            height: 400px;
+        }
+
+        /* Language Support */
+        [dir="rtl"] {
+            text-align: right;
+        }
+
+        [dir="rtl"] .hero-container {
+            flex-direction: row-reverse;
+        }
+
+        [dir="rtl"] .nav-content {
+            flex-direction: row-reverse;
+        }
+
+        /* Hide/show based on language */
+        .lang-en { display: inline; }
+        .lang-ar { display: none; }
+
+        [data-lang="ar"] .lang-en { display: none; }
+        [data-lang="ar"] .lang-ar { display: inline; }
+
         @media (max-width: 768px) {
             .hero-container {
                 flex-direction: column;
@@ -270,6 +443,37 @@
                 width: 100%;
                 max-width: 300px;
             }
+        }
+
+        /* RTL Support */
+        [data-lang="ar"] {
+            direction: rtl;
+        }
+
+        [data-lang="ar"] .nav-content {
+            flex-direction: row-reverse;
+        }
+
+        [data-lang="ar"] .tech-tags {
+            flex-direction: row-reverse;
+        }
+
+        /* Smooth theme transitions */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Language visibility control */
+        .lang-en, .lang-ar {
+            display: inline;
+        }
+
+        [data-lang="en"] .lang-ar {
+            display: none !important;
+        }
+
+        [data-lang="ar"] .lang-en {
+            display: none !important;
         }
     </style>
     <script>
@@ -334,10 +538,98 @@
                     heroImage.style.transform = `translateY(${speed}px)`;
                 }
             });
+
+            // Theme toggle functionality
+            window.toggleTheme = function() {
+                const rootElement = document.documentElement;
+                const currentTheme = rootElement.getAttribute('data-theme') || 'light';
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                rootElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                
+                // Update theme icon
+                const themeIcon = document.getElementById('theme-icon');
+                if (themeIcon) {
+                    themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+                }
+                
+                // Add smooth transition animation
+                rootElement.style.transition = 'all 0.3s ease';
+                setTimeout(() => {
+                    rootElement.style.transition = '';
+                }, 300);
+            };
+
+            // Language toggle functionality
+            window.toggleLanguage = function() {
+                const htmlElement = document.documentElement;
+                const currentLang = htmlElement.getAttribute('data-lang') || 'en';
+                const newLang = currentLang === 'en' ? 'ar' : 'en';
+                
+                htmlElement.setAttribute('data-lang', newLang);
+                htmlElement.setAttribute('dir', newLang === 'ar' ? 'rtl' : 'ltr');
+                localStorage.setItem('language', newLang);
+                
+                // Update visibility
+                updateLanguageVisibility(newLang);
+            };
+
+            function updateLanguageVisibility(lang) {
+                const allLangElements = document.querySelectorAll('.lang-en, .lang-ar');
+                
+                allLangElements.forEach(element => {
+                    if (element.classList.contains(`lang-${lang}`)) {
+                        element.style.display = 'inline';
+                    } else {
+                        element.style.display = 'none';
+                    }
+                });
+            }
+
+            // Initialize theme and language on page load
+            function initializeSettings() {
+                // Initialize theme
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                document.documentElement.setAttribute('data-theme', savedTheme);
+                
+                // Update theme icon
+                const themeIcon = document.getElementById('theme-icon');
+                if (themeIcon) {
+                    themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+                }
+                
+                // Initialize language
+                const savedLang = localStorage.getItem('language') || 'en';
+                const htmlElement = document.documentElement;
+                htmlElement.setAttribute('data-lang', savedLang);
+                htmlElement.setAttribute('dir', savedLang === 'ar' ? 'rtl' : 'ltr');
+                
+                // Update language visibility
+                updateLanguageVisibility(savedLang);
+            }
+
+            // Initialize settings on page load
+            initializeSettings();
         });
     </script>
 </head>
 <body>
+
+<!-- Navigation Bar -->
+<nav class="nav-bar">
+    <div class="nav-content">
+        <a href="#" class="nav-logo">YK</a>
+        <div class="nav-controls">
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Theme">
+                <span id="theme-icon">🌙</span>
+            </button>
+            <button class="lang-toggle" onclick="toggleLanguage()" title="Toggle Language">
+                <span id="lang-icon">🌐</span>
+            </button>
+        </div>
+    </div>
+</nav>
 
 <section class="hero-section">
  <div class="hero-container">
@@ -345,14 +637,26 @@
  <img src="photo.jpg" alt="Professional Profile Picture of Youssef Khaled" class="profile-image">
  </div>
  <div class="hero-content">
- <h1 class="hero-title animate-on-scroll" data-delay="200">Youssef Khaled</h1>
- <p class="hero-subtitle animate-on-scroll" data-delay="400">Electronics &amp; Communication Engineering Student | Programming Instructor | Cybersecurity Analyst</p>
- <p class="hero-tagline animate-on-scroll" data-delay="600">Building secure systems and empowering the next generation of developers through hands-on training and innovative engineering solutions.</p>
+ <h1 class="hero-title animate-on-scroll" data-delay="200">
+     <span class="lang-en">Youssef Khaled</span>
+     <span class="lang-ar">يوسف خالد</span>
+ </h1>
+ <p class="hero-subtitle animate-on-scroll" data-delay="400">
+     <span class="lang-en">Electronics & Communication Engineering Student | Programming Instructor | Cybersecurity Analyst</span>
+     <span class="lang-ar">طالب هندسة إلكترونيات واتصالات | مدرس برمجة | محلل أمن سيبراني</span>
+ </p>
+ <p class="hero-tagline animate-on-scroll" data-delay="600">
+     <span class="lang-en">Building secure systems and empowering the next generation of developers through hands-on training and innovative engineering solutions.</span>
+     <span class="lang-ar">بناء أنظمة آمنة وتمكين الجيل القادم من المطورين من خلال التدريب العملي والحلول الهندسية المبتكرة.</span>
+ </p>
  
  <div class="hero-location animate-on-scroll" data-delay="800">
  <div class="location-item">
  <span>📍</span>
- <span>Port Said, Egypt</span>
+ <span>
+     <span class="lang-en">Port Said, Egypt</span>
+     <span class="lang-ar">بورسعيد، مصر</span>
+ </span>
  </div>
  <div class="location-item">
  <span>📞</span>
@@ -361,18 +665,25 @@
  </div>
  <div class="cta-buttons animate-on-scroll" data-delay="1000">
  <a href="Yousef_Eid-CV.pdf" class="btn-primary" target="_blank" rel="noopener noreferrer">
- Download Resume
+ <span class="lang-en">Download Resume</span>
+ <span class="lang-ar">تحميل السيرة الذاتية</span>
  </a>
- <a href="#projects" class="btn-secondary">View Projects</a>
- <a href="#contact" class="btn-secondary">Contact Me</a>
+ <a href="#projects" class="btn-secondary">
+     <span class="lang-en">View Projects</span>
+     <span class="lang-ar">عرض المشاريع</span>
+ </a>
+ <a href="#contact" class="btn-secondary">
+     <span class="lang-en">Contact Me</span>
+     <span class="lang-ar">تواصل معي</span>
+ </a>
  </div>
  <div class="social-links animate-on-scroll" data-delay="1200">
- <a href="https://www.linkedin.com/in/youssef-khaled-eid" class="social-link" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile">
- 💼
- </a>
- <a href="https://github.com/YoussefKhaled03" class="social-link" target="_blank" rel="noopener noreferrer" title="GitHub Profile">
- 💻
- </a>
+<a href="https://www.linkedin.com/in/youssef-khaled-eid" class="social-link" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" style="width:24px;height:24px;">
+</a>
+<a href="https://github.com/YoussefKhaled03" class="social-link" target="_blank" rel="noopener noreferrer" title="GitHub Profile">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" style="width:24px;height:24px;">
+</a>
  <a href="mailto:eng.youssef.khaled.26@gmail.com" class="social-link" title="Email Contact">
  ✉️
  </a>
@@ -451,26 +762,34 @@
  </div>
  </div>
 </section>
-</div></div></div></div></div></div></div><div class="B__h-full B__w-full"><div class="B__w-full B__h-full B__relative B__bg-shade-light" id=A0CGjH5aR4Un6A1756057800><div class="B__w-full B__h-full B__relative live-mode B__opacity-100"><div class=code-editor-container><div class="B__relative B__w-full"><div class="code-preview-container B__relative"><div id=user-content class="B__w-full B__relative"><style class=sf-hidden>.featured-projects{background-color:var(--landing-secondary);padding:80px 20px;font-family:"Open Sans",sans-serif}.featured-projects-container{max-width:1200px;width:100%;margin:0 auto}.featured-projects h2{font-family:"Inter",sans-serif;font-size:48px;font-weight:700;text-align:center;color:var(--landing-foreground);margin-bottom:60px;transition:all 0.8s ease}.featured-projects h2.animate{opacity:1;transform:translateY(0)}.projects-grid{display:flex;flex-direction:row;gap:40px;align-items:flex-start}.project-card{background-color:var(--landing-background);border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.08);overflow:hidden;transition:all 0.4s ease;flex:1}.project-card.animate{opacity:1;transform:translateY(0)}.project-card:nth-child(2){transition-delay:0.2s}.project-card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(0,0,0,0.15)}.project-image-container{position:relative;width:100%;height:250px;background:var(--landing-gradient-secondary);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center}.project-placeholder{width:100%;height:100%;background:var(--landing-gradient-accent);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--landing-background);font-size:18px;font-weight:600;position:relative}.project-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:var(--landing-overlay);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s ease;color:var(--landing-background);text-align:center;padding:20px}.project-image-container:hover .project-overlay{opacity:1}.project-overlay h4{font-family:"Inter",sans-serif;font-size:20px;font-weight:600;margin-bottom:10px}.project-overlay p{font-size:14px;line-height:1.4}.project-content{padding:30px}.project-title{font-family:"Inter",sans-serif;font-size:28px;font-weight:700;color:var(--landing-foreground);margin-bottom:15px;line-height:1.2}.project-description{color:var(--landing-text);font-size:16px;line-height:1.6;margin-bottom:20px}.tech-tags{display:flex;flex-direction:row;flex-wrap:wrap;gap:8px;margin-bottom:25px}.tech-tag{background-color:var(--landing-secondary);color:var(--landing-text-muted);padding:6px 12px;border-radius:20px;font-size:14px;font-weight:500}.github-button{display:inline-flex;align-items:center;justify-content:center;background-color:var(--landing-accent);color:var(--landing-background);padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;font-size:16px;transition:all 0.3s ease;border:none;cursor:pointer}.github-button:hover{background-color:var(--landing-hover);transform:translateY(-2px)}.github-button:active{background-color:var(--landing-active);transform:translateY(0)}@media (max-width:768px){.featured-projects{padding:60px 20px}.featured-projects h2{font-size:36px;margin-bottom:40px}.projects-grid{flex-direction:column;gap:30px}.project-title{font-size:24px}.project-content{padding:25px}.project-image-container{height:200px}}</style>
+</div></div></div></div></div></div></div><div class="B__h-full B__w-full"><div class="B__w-full B__h-full B__relative B__bg-shade-light" id=A0CGjH5aR4Un6A1756057800><div class="B__w-full B__h-full B__relative live-mode B__opacity-100"><div class=code-editor-container><div class="B__relative B__w-full"><div class="code-preview-container B__relative"><div id=user-content class="B__w-full B__relative"><style class=sf-hidden>.featured-projects{background-color:var(--landing-secondary);padding:80px 20px;font-family:"Open Sans",sans-serif}.featured-projects-container{max-width:1200px;width:100%;margin:0 auto}.featured-projects h2{font-family:"Inter",sans-serif;font-size:48px;font-weight:700;text-align:center;color:var(--landing-foreground);margin-bottom:60px;transition:all 0.8s ease}.featured-projects h2.animate{opacity:1;transform:translateY(0)}.projects-scroll-container{width:100%;overflow:hidden;position:relative}.projects-grid{display:flex;flex-direction:row;gap:30px;align-items:flex-start;animation:scrollProjects 35s linear infinite;will-change:transform}.projects-grid:hover{animation-play-state:paused}.project-card{background-color:var(--landing-background);border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.08);overflow:hidden;transition:all 0.4s ease;min-width:350px;max-width:400px;flex-shrink:0;height:auto}@keyframes scrollProjects{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}.project-card.animate{opacity:1;transform:translateY(0)}.project-card:nth-child(2){transition-delay:0.2s}.project-card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(0,0,0,0.15)}.project-image-container{position:relative;width:100%;height:250px;background:var(--landing-gradient-secondary);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center}.project-placeholder{width:100%;height:100%;background:var(--landing-gradient-accent);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--landing-background);font-size:18px;font-weight:600;position:relative}.project-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:var(--landing-overlay);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s ease;color:var(--landing-background);text-align:center;padding:20px}.project-image-container:hover .project-overlay{opacity:1}.project-overlay h4{font-family:"Inter",sans-serif;font-size:20px;font-weight:600;margin-bottom:10px}.project-overlay p{font-size:14px;line-height:1.4}.project-content{padding:30px;display:flex;flex-direction:column;height:auto;min-height:300px}.project-title{font-family:"Inter",sans-serif;font-size:28px;font-weight:700;color:var(--landing-foreground);margin-bottom:15px;line-height:1.2}.project-description{color:var(--landing-text);font-size:15px;line-height:1.5;margin-bottom:20px;overflow:visible;display:-webkit-box;-webkit-box-orient:vertical;text-overflow:ellipsis}.tech-tags{display:flex;flex-direction:row;flex-wrap:wrap;gap:8px;margin-bottom:25px}.tech-tag{background-color:var(--landing-secondary);color:var(--landing-text-muted);padding:6px 12px;border-radius:20px;font-size:14px;font-weight:500}.github-button{display:inline-flex;align-items:center;justify-content:center;background-color:var(--landing-accent, #007bff);color:var(--landing-background, #ffffff);padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;font-size:16px;transition:all 0.3s ease;border:none;cursor:pointer;margin-top:auto;min-height:44px}.github-button:hover{background-color:var(--landing-hover, #0056b3);transform:translateY(-2px)}.github-button:active{background-color:var(--landing-active, #004494);transform:translateY(0)}@media (max-width:768px){.featured-projects{padding:60px 20px}.featured-projects h2{font-size:36px;margin-bottom:40px}.projects-grid{flex-direction:column;gap:30px;animation:none}.project-card{min-width:100%;max-width:100%}.project-title{font-size:24px}.project-content{padding:25px}.project-image-container{height:200px}}</style>
 <section class="featured-projects" id="projects">
  <div class=featured-projects-container>
- <h2 class=animate>Innovation in Action</h2>
+ <h2 class="animate">
+     <span class="lang-en">Innovation in Action</span>
+     <span class="lang-ar">الابتكار في العمل</span>
+ </h2>
  
+ <div class="projects-scroll-container">
  <div class=projects-grid>
  <article class="project-card animate">
  <div class=project-image-container>
  <div class=project-placeholder>
- 🤖 Robotic Car Project
+ 🤖 <span class="lang-en">Robotic Car Project</span><span class="lang-ar">مشروع السيارة الروبوتية</span>
  <div class=project-overlay>
- <h4>Advanced Navigation</h4>
- <p>Real-time obstacle detection and precise line following algorithms in action</p>
+ <h4><span class="lang-en">Advanced Navigation</span><span class="lang-ar">ملاحة متقدمة</span></h4>
+ <p><span class="lang-en">Real-time obstacle detection and precise line following algorithms in action</span><span class="lang-ar">اكتشاف العوائق في الوقت الفعلي وخوارزميات متابعة الخط الدقيقة</span></p>
  </div>
  </div>
  </div>
  <div class=project-content>
- <h3 class=project-title>Obstacle Avoidance &amp; Line Following Robotic Car</h3>
+ <h3 class=project-title>
+     <span class="lang-en">Obstacle Avoidance & Line Following Robotic Car</span>
+     <span class="lang-ar">سيارة روبوتية لتجنب العوائق ومتابعة الخط</span>
+ </h3>
  <p class=project-description>
- Autonomous robotic car with advanced navigation capabilities. Achieved 3rd place at RSRC 2024 competition organized by IEEE PSUSB. Features real-time obstacle detection and precise line following algorithms.
+ <span class="lang-en">Autonomous robotic car with advanced navigation capabilities. Achieved 3rd place at RSRC 2024 competition organized by IEEE PSUSB.</span>
+ <span class="lang-ar">سيارة روبوتية ذاتية القيادة مع قدرات ملاحة متقدمة. حققت المركز الثالث في مسابقة RSRC 2024.</span>
  </p>
  <div class=tech-tags>
  <span class=tech-tag>Arduino</span>
@@ -478,36 +797,170 @@
  <span class=tech-tag>Sensors</span>
  <span class=tech-tag>Motor Control</span>
  </div>
- <a href=www.linkedin.com/in/youssef-khaled-eid target=_blank rel="noopener noreferrer" class=github-button>
- View on LinkedIn
+ <a href="https://github.com/YoussefKhaled03" target=_blank rel="noopener noreferrer" class=github-button>
+ <span class="lang-en">View on GitHub</span>
+ <span class="lang-ar">عرض في GitHub</span>
  </a>
  </div>
  </article>
+ 
  <article class="project-card animate">
  <div class=project-image-container>
  <div class=project-placeholder>
- ☀️ Solar Tracker System
+ ☀️ <span class="lang-en">Solar Tracker System</span><span class="lang-ar">نظام تتبع الطاقة الشمسية</span>
  <div class=project-overlay>
- <h4>Dual-Axis Tracking</h4>
- <p>Intelligent solar tracking system maximizing energy absorption through precision movement</p>
+ <h4><span class="lang-en">Dual-Axis Tracking</span><span class="lang-ar">تتبع محورين</span></h4>
+ <p><span class="lang-en">Intelligent solar tracking system maximizing energy absorption through precision movement</span><span class="lang-ar">نظام تتبع شمسي ذكي يعظم امتصاص الطاقة من خلال الحركة الدقيقة</span></p>
  </div>
  </div>
  </div>
  <div class=project-content>
- <h3 class=project-title>2-Axis Solar Tracker System</h3>
+ <h3 class=project-title>
+     <span class="lang-en">2-Axis Solar Tracker System</span>
+     <span class="lang-ar">نظام تتبع الطاقة الشمسية ثنائي المحور</span>
+ </h3>
  <p class=project-description>
- Intelligent solar tracking system maximizing energy absorption through dual-axis movement. Integrated battery charging functionality for efficient renewable energy storage.
+ <span class="lang-en">Intelligent solar tracking system maximizing energy absorption through dual-axis movement. Integrated battery charging functionality.</span>
+ <span class="lang-ar">نظام تتبع شمسي ذكي يعظم امتصاص الطاقة من خلال الحركة ثنائية المحور. مع وظيفة شحن البطارية المدمجة.</span>
  </p>
  <div class=tech-tags>
  <span class=tech-tag>Solar Panels</span>
  <span class=tech-tag>Battery Management</span>
  <span class=tech-tag>Real-time Tracking</span>
  </div>
- <a href=https://github.com/YoussefKhaled03/Solar-Tracker target=_blank rel="noopener noreferrer" class=github-button>
- View on GitHub
+ <a href="https://github.com/YoussefKhaled03/Solar-Tracker" target=_blank rel="noopener noreferrer" class=github-button>
+ <span class="lang-en">View on GitHub</span>
+ <span class="lang-ar">عرض في GitHub</span>
  </a>
  </div>
  </article>
+ 
+ <!-- Video Player Project -->
+ <article class="project-card animate">
+ <div class=project-image-container>
+ <div class=project-placeholder>
+ 🎥 <span class="lang-en">Video Player</span><span class="lang-ar">مشغل الفيديو</span>
+ <div class=project-overlay>
+ <h4><span class="lang-en">Media Player</span><span class="lang-ar">مشغل الوسائط</span></h4>
+ <p><span class="lang-en">Simple and intuitive video player with essential playback controls</span><span class="lang-ar">مشغل فيديو بسيط وسهل الاستخدام مع عناصر التحكم الأساسية</span></p>
+ </div>
+ </div>
+ </div>
+ <div class=project-content>
+ <h3 class=project-title>
+     <span class="lang-en">Simple Video Player</span>
+     <span class="lang-ar">مشغل فيديو بسيط</span>
+ </h3>
+ <p class=project-description>
+ <span class="lang-en">A clean and functional video player application built with Python. Features essential playback controls and user-friendly interface.</span>
+ <span class="lang-ar">تطبيق مشغل فيديو نظيف وعملي مبني بـ Python. يتميز بعناصر التحكم الأساسية وواجهة سهلة الاستخدام.</span>
+ </p>
+ <div class=tech-tags>
+ <span class=tech-tag>Python</span>
+ <span class=tech-tag>Media Player</span>
+ <span class=tech-tag>GUI</span>
+ </div>
+ <a href="https://github.com/YoussefKhaled03/audio_player" target=_blank rel="noopener noreferrer" class=github-button>
+ <span class="lang-en">View on GitHub</span>
+ <span class="lang-ar">عرض في GitHub</span>
+ </a>
+ </div>
+ </article>
+
+ <!-- To-Do List Project -->
+ <article class="project-card animate">
+ <div class=project-image-container>
+ <div class=project-placeholder>
+ 📝 <span class="lang-en">To-Do List</span><span class="lang-ar">قائمة المهام</span>
+ <div class=project-overlay>
+ <h4><span class="lang-en">Task Management</span><span class="lang-ar">إدارة المهام</span></h4>
+ <p><span class="lang-en">Organize and track your daily tasks with this efficient to-do list application</span><span class="lang-ar">نظم وتتبع مهامك اليومية مع هذا التطبيق الفعال لقائمة المهام</span></p>
+ </div>
+ </div>
+ </div>
+ <div class=project-content>
+ <h3 class=project-title>
+     <span class="lang-en">Task Management System</span>
+     <span class="lang-ar">نظام إدارة المهام</span>
+ </h3>
+ <p class=project-description>
+ <span class="lang-en">A comprehensive to-do list application built with Java. Features task creation, completion tracking, and intuitive user interface.</span>
+ <span class="lang-ar">تطبيق شامل لقائمة المهام مبني بـ Java. يتميز بإنشاء المهام وتتبع الإنجاز وواجهة مستخدم بديهية.</span>
+ </p>
+ <div class=tech-tags>
+ <span class=tech-tag>Java</span>
+ <span class=tech-tag>TUI</span>
+ <span class=tech-tag>Task Management</span>
+ </div>
+ <a href="https://github.com/YoussefKhaled03/To-Do-List" target=_blank rel="noopener noreferrer" class=github-button>
+ <span class="lang-en">View on GitHub</span>
+ <span class="lang-ar">عرض في GitHub</span>
+ </a>
+ </div>
+ </article>
+
+ <!-- Duplicate projects for seamless scrolling -->
+ <article class="project-card animate">
+ <div class=project-image-container>
+ <div class=project-placeholder>
+ 🤖 <span class="lang-en">Robotic Car Project</span><span class="lang-ar">مشروع السيارة الروبوتية</span>
+ <div class=project-overlay>
+ <h4><span class="lang-en">Advanced Navigation</span><span class="lang-ar">ملاحة متقدمة</span></h4>
+ <p><span class="lang-en">Real-time obstacle detection and precise line following algorithms</span><span class="lang-ar">اكتشاف العوائق في الوقت الفعلي وخوارزميات متابعة الخط</span></p>
+ </div>
+ </div>
+ </div>
+ <div class=project-content>
+ <h3 class=project-title>
+     <span class="lang-en">Obstacle Avoidance & Line Following Robotic Car</span>
+     <span class="lang-ar">سيارة روبوتية لتجنب العوائق ومتابعة الخط</span>
+ </h3>
+ <p class=project-description>
+ <span class="lang-en">Autonomous robotic car with advanced navigation capabilities. Achieved 3rd place at RSRC 2024.</span>
+ <span class="lang-ar">سيارة روبوتية ذاتية القيادة مع قدرات ملاحة متقدمة. حققت المركز الثالث في مسابقة RSRC 2024.</span>
+ </p>
+ <div class=tech-tags>
+ <span class=tech-tag>Arduino</span>
+ <span class=tech-tag>C++</span>
+ <span class=tech-tag>Sensors</span>
+ </div>
+ <a href="https://github.com/YoussefKhaled03" target=_blank rel="noopener noreferrer" class=github-button>
+ <span class="lang-en">View on GitHub</span>
+ <span class="lang-ar">عرض في GitHub</span>
+ </a>
+ </div>
+ </article>
+ 
+ <article class="project-card animate">
+ <div class=project-image-container>
+ <div class=project-placeholder>
+ ☀️ <span class="lang-en">Solar Tracker System</span><span class="lang-ar">نظام تتبع الطاقة الشمسية</span>
+ <div class=project-overlay>
+ <h4><span class="lang-en">Dual-Axis Tracking</span><span class="lang-ar">تتبع محورين</span></h4>
+ <p><span class="lang-en">Intelligent solar tracking system maximizing energy absorption</span><span class="lang-ar">نظام تتبع شمسي ذكي يعظم امتصاص الطاقة</span></p>
+ </div>
+ </div>
+ </div>
+ <div class=project-content>
+ <h3 class=project-title>
+     <span class="lang-en">2-Axis Solar Tracker System</span>
+     <span class="lang-ar">نظام تتبع الطاقة الشمسية ثنائي المحور</span>
+ </h3>
+ <p class=project-description>
+ <span class="lang-en">Intelligent solar tracking system maximizing energy absorption through dual-axis movement.</span>
+ <span class="lang-ar">نظام تتبع شمسي ذكي يعظم امتصاص الطاقة من خلال الحركة ثنائية المحور.</span>
+ </p>
+ <div class=tech-tags>
+ <span class=tech-tag>Solar Panels</span>
+ <span class=tech-tag>Battery Management</span>
+ </div>
+ <a href="https://github.com/YoussefKhaled03/Solar-Tracker" target=_blank rel="noopener noreferrer" class=github-button>
+ <span class="lang-en">View on GitHub</span>
+ <span class="lang-ar">عرض في GitHub</span>
+ </a>
+ </div>
+ </article>
+ </div>
  </div>
  </div>
 </section>
@@ -515,11 +968,45 @@
 <section class="get-in-touch" id="contact">
  <div class=get-in-touch-container>
  <div class=get-in-touch-header style=animation-play-state:running>
- <h2 class=get-in-touch-title>Ready to Collaborate?</h2>
+ <h2 class="get-in-touch-title">
+     <span class="lang-en">Ready to Collaborate?</span>
+     <span class="lang-ar">هل أنت مستعد للتعاون؟</span>
+ </h2>
  <p></p>
- <div class=availability-status>
- <div class=availability-dot></div>
- Available for internship opportunities starting immediately
+ <div class="services-container">
+ <div class="service-card">
+ <div class="service-icon">👨‍🏫</div>
+ <h3 class="service-title">
+     <span class="lang-en">Programming Instructor</span>
+     <span class="lang-ar">مدرس برمجة</span>
+ </h3>
+ <p class="service-description">
+     <span class="lang-en">Teaching Python, C++, Web Development & Data Structures. Hands-on training with real projects.</span>
+     <span class="lang-ar">تدريس Python و C++ وتطوير الويب وهياكل البيانات. تدريب عملي مع مشاريع حقيقية.</span>
+ </p>
+ </div>
+ <div class="service-card">
+ <div class="service-icon">💻</div>
+ <h3 class="service-title">
+     <span class="lang-en">Full-Stack Developer</span>
+     <span class="lang-ar">مطور متكامل</span>
+ </h3>
+ <p class="service-description">
+     <span class="lang-en">End-to-end web development, automation scripts, and embedded systems. From concept to deployment.</span>
+     <span class="lang-ar">تطوير الويب من النهاية إلى النهاية وسكريبتات الأتمتة والأنظمة المدمجة. من الفكرة إلى النشر.</span>
+ </p>
+ </div>
+ <div class="service-card">
+ <div class="service-icon">�</div>
+ <h3 class="service-title">
+     <span class="lang-en">IoT & Electronics Solutions</span>
+     <span class="lang-ar">حلول إنترنت الأشياء والإلكترونيات</span>
+ </h3>
+ <p class="service-description">
+     <span class="lang-en">Electronics design, sensor integration, and smart automation systems for modern IoT applications.</span>
+     <span class="lang-ar">تصميم الإلكترونيات وتكامل المستشعرات وأنظمة الأتمتة الذكية لتطبيقات إنترنت الأشياء الحديثة.</span>
+ </p>
+ </div>
  </div>
  </div>
  <div class=contact-content>
