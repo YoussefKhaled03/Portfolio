@@ -570,23 +570,11 @@
         .projects-grid {
             display: flex;
             gap: 40px;
-            animation: scrollProjects 40s linear infinite;
             width: max-content;
             will-change: transform;
         }
 
-        .projects-grid:hover {
-            animation-play-state: paused;
-        }
 
-        @keyframes scrollProjects {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(calc(-100% - 40px));
-            }
-        }
 
         .project-card {
             background-color: var(--landing-background);
@@ -1000,7 +988,7 @@
  </div>
  </div>
 </section>
-</div></div></div></div></div></div></div><div class="B__h-full B__w-full"><div class="B__w-full B__h-full B__relative B__bg-shade-light" id=A0CGjH5aR4Un6A1756057800><div class="B__w-full B__h-full B__relative live-mode B__opacity-100"><div class=code-editor-container><div class="B__relative B__w-full"><div class="code-preview-container B__relative"><div id=user-content class="B__w-full B__relative"><style class=sf-hidden>.featured-projects{background-color:var(--landing-secondary);padding:80px 20px;font-family:"Open Sans",sans-serif}.featured-projects-container{max-width:1200px;width:100%;margin:0 auto}.featured-projects h2{font-family:"Inter",sans-serif;font-size:48px;font-weight:700;text-align:center;color:var(--landing-foreground);margin-bottom:60px;transition:all 0.8s ease}.featured-projects h2.animate{opacity:1;transform:translateY(0)}.projects-scroll-container{width:100%;overflow:hidden;position:relative}.projects-grid{display:flex;flex-direction:row;gap:30px;align-items:flex-start;animation:scrollProjects 40s linear infinite;will-change:transform}.projects-grid:hover{animation-play-state:paused}.project-card{background:rgba(var(--landing-background-rgb, 250, 250, 250), 0.8);backdrop-filter:blur(20px) saturate(180%);border-radius:16px;border:1px solid rgba(0, 217, 255, 0.2);box-shadow:0 8px 32px rgba(0, 217, 255, 0.1);overflow:hidden;transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);min-width:350px;max-width:400px;flex-shrink:0;height:auto;position:relative}@keyframes scrollProjects{0%{transform:translateX(0)}100%{transform:translateX(calc(-100% - 30px))}}.project-card.animate{opacity:1;transform:translateY(0)}.project-card:nth-child(2){transition-delay:0.2s}.project-card:hover{transform:translateY(-15px) scale(1.02);box-shadow:0 25px 50px rgba(0, 217, 255, 0.25), 0 0 0 1px rgba(0, 217, 255, 0.3);border-color:var(--tech-primary)}.project-image-container{position:relative;width:100%;height:250px;background:var(--landing-gradient-secondary);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center}.project-placeholder{width:100%;height:100%;background:var(--landing-gradient-accent);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--landing-background);font-size:18px;font-weight:600;position:relative}.project-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:var(--landing-overlay);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s ease;color:var(--landing-background);text-align:center;padding:20px}.project-image-container:hover .project-overlay{opacity:1}.project-overlay h4{font-family:"Inter",sans-serif;font-size:20px;font-weight:600;margin-bottom:10px}.project-overlay p{font-size:14px;line-height:1.4}.project-content{padding:30px;display:flex;flex-direction:column;height:auto;min-height:300px}.project-title{font-family:"Inter",sans-serif;font-size:28px;font-weight:700;color:var(--landing-foreground);margin-bottom:15px;line-height:1.2}.project-description{color:var(--landing-text);font-size:15px;line-height:1.5;margin-bottom:20px;overflow:visible;display:-webkit-box;-webkit-box-orient:vertical;text-overflow:ellipsis}.tech-tags{display:flex;flex-direction:row;flex-wrap:wrap;gap:8px;margin-bottom:25px}.tech-tag{background:rgba(0, 217, 255, 0.1);color:var(--tech-primary);padding:8px 16px;border-radius:20px;font-size:14px;font-weight:600;font-family:"JetBrains Mono", monospace;border:1px solid rgba(0, 217, 255, 0.3);transition:all 0.3s ease}.tech-tag:hover{background:var(--tech-primary);color:white;transform:translateY(-2px);box-shadow:0 4px 15px rgba(0, 217, 255, 0.3)}.github-button{display:inline-flex;align-items:center;justify-content:center;background-color:var(--landing-accent, #007bff);color:var(--landing-background, #ffffff);padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;font-size:16px;transition:all 0.3s ease;border:none;cursor:pointer;margin-top:auto;min-height:44px}.github-button:hover{background-color:var(--landing-hover, #0056b3);transform:translateY(-2px)}.github-button:active{background-color:var(--landing-active, #004494);transform:translateY(0)}@media (max-width:768px){.featured-projects{padding:60px 20px}.featured-projects h2{font-size:36px;margin-bottom:40px}.projects-grid{flex-direction:column;gap:30px;animation:none}.project-card{min-width:100%;max-width:100%}.project-title{font-size:24px}.project-content{padding:25px}.project-image-container{height:200px}}</style>
+</div></div></div></div></div></div></div><div class="B__h-full B__w-full"><div class="B__w-full B__h-full B__relative B__bg-shade-light" id=A0CGjH5aR4Un6A1756057800><div class="B__w-full B__h-full B__relative live-mode B__opacity-100"><div class=code-editor-container><div class="B__relative B__w-full"><div class="code-preview-container B__relative"><div id=user-content class="B__w-full B__relative"><style class=sf-hidden>.featured-projects{background-color:var(--landing-secondary);padding:80px 20px;font-family:"Open Sans",sans-serif;position:relative}.featured-projects-container{max-width:1200px;width:100%;margin:0 auto}.featured-projects h2{font-family:"Inter",sans-serif;font-size:48px;font-weight:700;text-align:center;color:var(--landing-foreground);margin-bottom:60px;transition:all 0.8s ease}.featured-projects h2.animate{opacity:1;transform:translateY(0)}.projects-scroll-container{width:100%;overflow-x:auto;overflow-y:hidden;position:relative;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none}.projects-scroll-container::-webkit-scrollbar{display:none}.projects-scroll-container.dragging{cursor:grabbing;user-select:none}.projects-grid{display:flex;flex-direction:row;gap:30px;align-items:flex-start;will-change:transform}.slider-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:1000;background:rgba(0,0,0,0.7);color:white;border:none;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.3)}.slider-btn:hover{background:rgba(0,0,0,0.9);transform:translateY(-50%) scale(1.1)}.slider-btn.left{left:20px}.slider-btn.right{right:20px}.slider-btn:focus{outline:2px solid rgba(255,255,255,0.5)}.project-card{background:rgba(var(--landing-background-rgb, 250, 250, 250), 0.8);backdrop-filter:blur(20px) saturate(180%);border-radius:16px;border:1px solid rgba(0, 217, 255, 0.2);box-shadow:0 8px 32px rgba(0, 217, 255, 0.1);overflow:hidden;transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);min-width:350px;max-width:400px;flex-shrink:0;height:auto;position:relative}.project-card.animate{opacity:1;transform:translateY(0)}.project-card:nth-child(2){transition-delay:0.2s}.project-card:hover{transform:translateY(-15px) scale(1.02);box-shadow:0 25px 50px rgba(0, 217, 255, 0.25), 0 0 0 1px rgba(0, 217, 255, 0.3);border-color:var(--tech-primary)}.project-image-container{position:relative;width:100%;height:250px;background:var(--landing-gradient-secondary);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center}.project-placeholder{width:100%;height:100%;background:var(--landing-gradient-accent);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--landing-background);font-size:18px;font-weight:600;position:relative}.project-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:var(--landing-overlay);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s ease;color:var(--landing-background);text-align:center;padding:20px}.project-image-container:hover .project-overlay{opacity:1}.project-overlay h4{font-family:"Inter",sans-serif;font-size:20px;font-weight:600;margin-bottom:10px}.project-overlay p{font-size:14px;line-height:1.4}.project-content{padding:30px;display:flex;flex-direction:column;height:auto;min-height:300px}.project-title{font-family:"Inter",sans-serif;font-size:28px;font-weight:700;color:var(--landing-foreground);margin-bottom:15px;line-height:1.2}.project-description{color:var(--landing-text);font-size:15px;line-height:1.5;margin-bottom:20px;overflow:visible;display:-webkit-box;-webkit-box-orient:vertical;text-overflow:ellipsis}.tech-tags{display:flex;flex-direction:row;flex-wrap:wrap;gap:8px;margin-bottom:25px}.tech-tag{background:rgba(0, 217, 255, 0.1);color:var(--tech-primary);padding:8px 16px;border-radius:20px;font-size:14px;font-weight:600;font-family:"JetBrains Mono", monospace;border:1px solid rgba(0, 217, 255, 0.3);transition:all 0.3s ease}.tech-tag:hover{background:var(--tech-primary);color:white;transform:translateY(-2px);box-shadow:0 4px 15px rgba(0, 217, 255, 0.3)}.github-button{display:inline-flex;align-items:center;justify-content:center;background-color:var(--landing-accent, #007bff);color:var(--landing-background, #ffffff);padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;font-size:16px;transition:all 0.3s ease;border:none;cursor:pointer;margin-top:auto;min-height:44px}.github-button:hover{background-color:var(--landing-hover, #0056b3);transform:translateY(-2px)}.github-button:active{background-color:var(--landing-active, #004494);transform:translateY(0)}@media (max-width:768px){.featured-projects{padding:60px 20px}.featured-projects h2{font-size:36px;margin-bottom:40px}.projects-grid{flex-direction:row;gap:30px}.project-card{min-width:300px;max-width:350px;flex-shrink:0}.project-title{font-size:24px}.project-content{padding:25px}.project-image-container{height:200px}.slider-btn{width:40px;height:40px}.slider-btn.left{left:15px}.slider-btn.right{right:15px}}</style>
 <section class="featured-projects" id="projects">
  <div class=featured-projects-container>
  <h2 class="animate">
@@ -1008,6 +996,16 @@
      <span class="lang-ar">الابتكار في العمل</span>
  </h2>
  
+ <button class="slider-btn left" aria-label="Scroll left">
+     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+         <path d="M15 18l-6-6 6-6"/>
+     </svg>
+ </button>
+ <button class="slider-btn right" aria-label="Scroll right">
+     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+         <path d="M9 6l6 6-6 6"/>
+     </svg>
+ </button>
  <div class="projects-scroll-container">
  <div class=projects-grid>
  <article class="project-card animate">
@@ -1261,18 +1259,18 @@
  <a href=mailto:eng.youssef.khaled.26@gmail.com class=contact-link data-target-backup=undefined target=undefined>eng.youssef.khaled.26@gmail.com</a>
  </div>
  </div>
- <div class=contact-card>
+ <a href="https://wa.me/201141619933?text=Hello%20Youssef%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank" rel="noopener noreferrer" class=contact-card>
  <div class=contact-card-header>
- <svg class=contact-icon fill=currentColor viewBox="0 0 24 24">
- <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path>
+ <svg class=contact-icon fill="#25D366" viewBox="0 0 24 24">
+ <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.064 3.488"/>
  </svg>
- <div class=contact-label>Phone</div>
+ <div class=contact-label>WhatsApp</div>
  </div>
  <div class=contact-value>
- <a href=tel:+201141619933 class=contact-link data-target-backup=undefined target=undefined>+20 114 161 9933</a>
+ <span class=contact-link>+20 114 161 9933</span>
  </div>
- </div>
- <div class=contact-card>
+ </a>
+ <a href="https://www.linkedin.com/in/youssef-khaled-eid" target="_blank" rel="noopener noreferrer" class=contact-card>
  <div class=contact-card-header>
  <svg class=contact-icon fill=currentColor viewBox="0 0 24 24">
  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"></path>
@@ -1280,10 +1278,10 @@
  <div class=contact-label>LinkedIn</div>
  </div>
  <div class=contact-value>
- <a href=https://www.linkedin.com/in/youssef-khaled-eid target=_blank rel="noopener noreferrer" class=contact-link data-target-backup=_blank>youssef-khaled-eid</a>
+ <span class=contact-link>youssef-khaled-eid</span>
  </div>
- </div>
- <div class=contact-card>
+ </a>
+ <a href="https://github.com/YoussefKhaled03" target="_blank" rel="noopener noreferrer" class=contact-card>
  <div class=contact-card-header>
  <svg class=contact-icon fill=currentColor viewBox="0 0 24 24">
  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
@@ -1291,9 +1289,9 @@
  <div class=contact-label>GitHub</div>
  </div>
  <div class=contact-value>
- <a href=https://github.com/YoussefKhaled03 target=_blank rel="noopener noreferrer" class=contact-link data-target-backup=_blank>YoussefKhaled03</a>
+ <span class=contact-link>YoussefKhaled03</span>
  </div>
- </div>
+ </a>
  </div>
  </div>
  <div class=cta-section style=animation-play-state:running>
@@ -1327,6 +1325,123 @@
  </div>
  </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Projects slider functionality
+    const projectsContainer = document.querySelector('.projects-scroll-container');
+    const leftBtn = document.querySelector('.slider-btn.left');
+    const rightBtn = document.querySelector('.slider-btn.right');
+    
+    if (projectsContainer && leftBtn && rightBtn) {
+        const scrollAmount = 350; // Amount to scroll per click
+        
+        // Simple and reliable navigation
+        leftBtn.addEventListener('click', () => {
+            const currentScroll = projectsContainer.scrollLeft;
+            const maxScroll = projectsContainer.scrollWidth - projectsContainer.clientWidth;
+            
+            if (currentScroll <= 0) {
+                // At the beginning, go to the end
+                projectsContainer.scrollTo({
+                    left: maxScroll,
+                    behavior: 'smooth'
+                });
+            } else {
+                // Normal left scroll
+                projectsContainer.scrollTo({
+                    left: Math.max(0, currentScroll - scrollAmount),
+                    behavior: 'smooth'
+                });
+            }
+        });
+        
+        rightBtn.addEventListener('click', () => {
+            const currentScroll = projectsContainer.scrollLeft;
+            const maxScroll = projectsContainer.scrollWidth - projectsContainer.clientWidth;
+            
+            if (currentScroll >= maxScroll) {
+                // At the end, go to the beginning
+                projectsContainer.scrollTo({
+                    left: 0,
+                    behavior: 'smooth'
+                });
+            } else {
+                // Normal right scroll
+                projectsContainer.scrollTo({
+                    left: Math.min(maxScroll, currentScroll + scrollAmount),
+                    behavior: 'smooth'
+                });
+            }
+        });
+        
+        // Drag functionality
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        
+        projectsContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            projectsContainer.classList.add('dragging');
+            startX = e.pageX - projectsContainer.offsetLeft;
+            scrollLeft = projectsContainer.scrollLeft;
+            e.preventDefault();
+        });
+        
+        projectsContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+            projectsContainer.classList.remove('dragging');
+        });
+        
+        projectsContainer.addEventListener('mouseup', () => {
+            isDown = false;
+            projectsContainer.classList.remove('dragging');
+        });
+        
+        projectsContainer.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - projectsContainer.offsetLeft;
+            const walk = (x - startX) * 2; // Scroll speed multiplier
+            projectsContainer.scrollLeft = scrollLeft - walk;
+        });
+        
+        // Touch functionality for mobile
+        let touchStartX = 0;
+        let touchScrollLeft = 0;
+        
+        projectsContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            touchScrollLeft = projectsContainer.scrollLeft;
+        });
+        
+        projectsContainer.addEventListener('touchmove', (e) => {
+            if (!touchStartX) return;
+            const touchX = e.touches[0].clientX;
+            const walk = (touchStartX - touchX) * 2;
+            projectsContainer.scrollLeft = touchScrollLeft + walk;
+        });
+        
+        projectsContainer.addEventListener('touchend', () => {
+            touchStartX = 0;
+        });
+        
+        // Update button visibility with proper feedback
+        function updateButtonVisibility() {
+            const currentScroll = projectsContainer.scrollLeft;
+            const maxScroll = projectsContainer.scrollWidth - projectsContainer.clientWidth;
+            
+            // Buttons are always active since we have looping, but show visual feedback
+            leftBtn.style.opacity = currentScroll <= 5 ? '0.7' : '1';
+            rightBtn.style.opacity = currentScroll >= maxScroll - 5 ? '0.7' : '1';
+        }
+        
+        projectsContainer.addEventListener('scroll', updateButtonVisibility);
+        
+        updateButtonVisibility(); // Initial check
+    }
+});
+</script>
 
 </body>
 </html>
