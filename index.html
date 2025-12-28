@@ -6,6 +6,9 @@
     <title>Youssef Khaled | Automation Engineer</title>
     <meta name="description" content="Portfolio of Youssef Khaled - Automation Engineer & Instructor">
     
+    <!-- Favicon (Robot Emoji) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -164,7 +167,6 @@
                 <div class="mt-12 flex items-center gap-6 text-slate-400 dark:text-slate-500">
                     <i class="fab fa-python text-3xl hover:text-python dark:hover:text-white transition-colors cursor-pointer" title="Python"></i>
                     <i class="fas fa-bolt text-3xl hover:text-n8n dark:hover:text-white transition-colors cursor-pointer" title="n8n"></i>
-                    <!-- Removed Java, added Robot and Chip -->
                     <i class="fas fa-robot text-3xl hover:text-blue-400 dark:hover:text-white transition-colors cursor-pointer" title="Robotics"></i>
                     <i class="fas fa-microchip text-3xl hover:text-green-500 dark:hover:text-white transition-colors cursor-pointer" title="Electronics"></i>
                     <i class="fas fa-database text-3xl hover:text-yellow-500 dark:hover:text-white transition-colors cursor-pointer" title="SQL"></i>
@@ -221,7 +223,7 @@
                 </div>
                 <div class="p-6 rounded-xl bg-slate-50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-800 transition-colors">
                     <div class="text-4xl mb-4">⚡</div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2" data-i18n="service.3.title">IoT & Electronics</h3>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2" data-i18n="service.3.title">IoT & Electronics Solutions</h3>
                     <p class="text-sm text-slate-500 dark:text-slate-400" data-i18n="service.3.desc">Electronics design, sensor integration, and smart automation systems for modern IoT applications.</p>
                 </div>
             </div>
@@ -246,7 +248,7 @@
                     <p class="text-sm text-slate-500 dark:text-slate-400">Scripting, GUI, Data Analysis, Scrapers</p>
                 </div>
 
-                <!-- Embedded/C++ (Replaced Java/Generic) -->
+                <!-- Embedded/C++ -->
                 <div class="bg-white dark:bg-card p-6 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 transition-all group tech-card shadow-sm dark:shadow-none">
                     <div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-500 group-hover:text-white transition-colors text-blue-500 text-2xl">
                         <i class="fas fa-microchip"></i>
@@ -295,6 +297,52 @@
             <!-- Projects Grid -->
             <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8" id="projects-grid">
                 
+                <!-- Project New: DEPI Attendance (Modified) -->
+                <div class="project-card group bg-white dark:bg-card rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 hover:border-n8n transition-all shadow-sm dark:shadow-none" data-category="software">
+                    <div class="h-48 bg-slate-100 dark:bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
+                        <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900">
+                            <i class="fas fa-network-wired text-6xl text-slate-300 dark:text-slate-700 group-hover:text-n8n transition-colors duration-500"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-n8n text-white text-xs font-bold px-2 py-1 rounded">Automation</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-n8n transition-colors" data-i18n="project.depi.title">DEPI Attendance System</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-3" data-i18n="project.depi.desc">
+                            Full-cycle attendance automation. Ingests MS Teams logs via Python, stores in PostgreSQL, and uses n8n + Gemini AI to fuzzy-match student names and update Master Sheets.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs rounded border border-slate-200 dark:border-slate-700">n8n</span>
+                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs rounded border border-slate-200 dark:border-slate-700">Docker</span>
+                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs rounded border border-slate-200 dark:border-slate-700">PostgreSQL</span>
+                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs rounded border border-slate-200 dark:border-slate-700">Gemini AI</span>
+                        </div>
+                        <!-- Removed Button -->
+                    </div>
+                </div>
+
+                <!-- Project New: Archive Manifest -->
+                <div class="project-card group bg-white dark:bg-card rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-all shadow-sm dark:shadow-none" data-category="software">
+                    <div class="h-48 bg-slate-100 dark:bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
+                        <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900">
+                            <i class="fas fa-box-archive text-6xl text-slate-300 dark:text-slate-700 group-hover:text-blue-500 transition-colors duration-500"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded">Python</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-500 transition-colors" data-i18n="project.archive.title">Intelligent Archive Manifest Generator</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-3" data-i18n="project.archive.desc">
+                            A Python-based automation tool that parses, ranks, and filters massive datasets to generate optimized download manifests for large-scale archival projects.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs rounded border border-slate-200 dark:border-slate-700">Python</span>
+                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs rounded border border-slate-200 dark:border-slate-700">BeautifulSoup</span>
+                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs rounded border border-slate-200 dark:border-slate-700">Regex</span>
+                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs rounded border border-slate-200 dark:border-slate-700">ETL</span>
+                        </div>
+                        <!-- No button as requested -->
+                    </div>
+                </div>
+
                 <!-- Project 1: Robotic Car -->
                 <div class="project-card group bg-white dark:bg-card rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 hover:border-python transition-all shadow-sm dark:shadow-none" data-category="embedded">
                     <div class="h-48 bg-slate-100 dark:bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
@@ -484,6 +532,10 @@
                 "project.video.desc": "A clean and functional video player application built with Python. Features essential playback controls and user-friendly interface.",
                 "project.todo.title": "Task Management System",
                 "project.todo.desc": "A comprehensive to-do list application built with Java. Features task creation, completion tracking, and intuitive user interface.",
+                "project.depi.title": "DEPI Attendance System",
+                "project.depi.desc": "Full-cycle attendance automation. Ingests MS Teams logs via Python, stores in PostgreSQL, and uses n8n + Gemini AI to fuzzy-match student names and update Master Sheets.",
+                "project.archive.title": "Intelligent Archive Manifest Generator",
+                "project.archive.desc": "A Python-based automation tool that parses, ranks, and filters massive datasets to generate optimized download manifests for large-scale archival projects.",
                 "contact.title": "Ready to Collaborate?",
                 "contact.desc": "Whether you need an automation script, embedded solution, or full development support, I'm here to help.",
                 "contact.resume": "Download Resume"
@@ -517,6 +569,10 @@
                 "project.video.desc": "تطبيق مشغل فيديو نظيف وعملي مبني بـ Python. يتميز بعناصر التحكم الأساسية وواجهة سهلة الاستخدام.",
                 "project.todo.title": "نظام إدارة المهام",
                 "project.todo.desc": "تطبيق شامل لقائمة المهام مبني بـ Java. يتميز بإنشاء المهام وتتبع الإنجاز وواجهة مستخدم بديهية.",
+                "project.depi.title": "نظام أتمتة الحضور (DEPI)",
+                "project.depi.desc": "أتمتة كاملة لدورة الحضور. معالجة سجلات MS Teams عبر Python، تخزينها في PostgreSQL، واستخدام n8n + Gemini AI لمطابقة أسماء الطلاب وتحديث الجداول الرئيسية.",
+                "project.archive.title": "مولد بيان الأرشفة الذكي",
+                "project.archive.desc": "أداة أتمتة تعتمد على Python تقوم بتحليل وتصنيف وتصفية مجموعات البيانات الضخمة لإنشاء قوائم تنزيل محسنة لمشاريع الأرشفة واسعة النطاق.",
                 "contact.title": "هل أنت مستعد للتعاون؟",
                 "contact.desc": "سواء كنت بحاجة إلى سكربت أتمتة، أو حلول مدمجة، أو دعم تطوير شامل، أنا هنا للمساعدة.",
                 "contact.resume": "تحميل السيرة الذاتية"
